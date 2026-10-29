@@ -7,6 +7,8 @@ export interface AdmissionSubmission {
   phone: string;
   academicLevel: string;
   primaryCourse: string;
+  password?: string;
+  studentId?: string;
   createdAt?: unknown;
 }
 
