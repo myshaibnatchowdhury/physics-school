@@ -120,7 +120,7 @@ export default function StudentsDashboardPage() {
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         {/* Top Header */}
         <AdminHeader
-          adminName="Engr. Sohel Rana"
+          adminName="Mysha Ibnat Chowdhury"
           onOpenChangePassword={() => setIsPasswordModalOpen(true)}
           onLogout={handleLogout}
         />

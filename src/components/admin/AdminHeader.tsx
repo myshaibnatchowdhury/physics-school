@@ -12,7 +12,7 @@ interface AdminHeaderProps {
 export default function AdminHeader({
   onOpenChangePassword,
   onLogout,
-  adminName = "Engr. Sohel Rana",
+  adminName = "Mysha Ibnat Chowdhury",
 }: AdminHeaderProps) {
   const [role, setRole] = useState("Admin");
 
