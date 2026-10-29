@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { X, Lock, Mail, User, Phone, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { X, Lock, Mail, User, Phone, CheckCircle2, AlertCircle, Loader2, ShieldCheck } from "lucide-react";
 import { COURSES } from "@/data/courses";
 import { submitAdmission } from "@/lib/firestore";
 
@@ -156,17 +157,29 @@ export function LoginModal({ isOpen, onClose, onSwitchToSignUp }: LoginModalProp
           </button>
         </form>
 
-        <div className="mt-5 pt-4 border-t border-[#E5EAF0] text-center text-xs text-[#64748B]">
-          New student?{" "}
-          <button
-            onClick={() => {
-              onClose();
-              onSwitchToSignUp();
-            }}
-            className="font-bold text-[#0B1726] hover:text-[#FFAA24] underline"
-          >
-            Apply for Admission
-          </button>
+        <div className="mt-5 pt-4 border-t border-[#E5EAF0] space-y-2 text-center text-xs text-[#64748B]">
+          <div>
+            New student?{" "}
+            <button
+              onClick={() => {
+                onClose();
+                onSwitchToSignUp();
+              }}
+              className="font-bold text-[#0B1726] hover:text-[#FFAA24] underline"
+            >
+              Apply for Admission
+            </button>
+          </div>
+          <div className="pt-1">
+            <Link
+              href="/admin/login"
+              onClick={onClose}
+              className="inline-flex items-center gap-1.5 font-bold text-[#2563EB] hover:underline text-[11px]"
+            >
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Are you an Administrator? Access Admin Portal →</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

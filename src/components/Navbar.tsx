@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, ShieldCheck } from "lucide-react";
 
 interface NavbarProps {
   onOpenSearch: () => void;
@@ -126,7 +126,7 @@ export default function Navbar({
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2.5">
             {/* Search Button */}
             <button
               onClick={onOpenSearch}
@@ -136,10 +136,20 @@ export default function Navbar({
               <Search className="w-4 h-4" />
             </button>
 
+            {/* Admin Portal Shortcut */}
+            <Link
+              href="/admin/login"
+              className="px-2.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-white rounded-lg border border-white/15 hover:border-[#FFAA24]/60 flex items-center gap-1.5 transition-all"
+              title="Access Admin Portal"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-[#FFAA24]" />
+              <span>Admin</span>
+            </Link>
+
             {/* Login Button */}
             <button
               onClick={onOpenLogin}
-              className="px-4 py-1.5 text-sm font-semibold text-white hover:text-[#FFAA24] rounded-lg border border-white/20 hover:border-[#FFAA24] transition-all focus:outline-none focus:ring-2 focus:ring-[#FFAA24]"
+              className="px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white hover:text-[#FFAA24] rounded-lg border border-white/20 hover:border-[#FFAA24] transition-all focus:outline-none focus:ring-2 focus:ring-[#FFAA24]"
             >
               Login
             </button>
@@ -147,7 +157,7 @@ export default function Navbar({
             {/* Sign Up Button (Primary golden-orange pill) */}
             <button
               onClick={onOpenSignUp}
-              className="px-5 py-1.5 text-sm font-bold bg-[#FFAA24] text-[#0B1726] hover:bg-[#FFC247] rounded-lg shadow-sm hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#07111D] focus:ring-[#FFAA24]"
+              className="px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-bold bg-[#FFAA24] text-[#0B1726] hover:bg-[#FFC247] rounded-lg shadow-sm hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#07111D] focus:ring-[#FFAA24]"
             >
               Sign Up
             </button>
@@ -189,6 +199,14 @@ export default function Navbar({
             ))}
           </nav>
           <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
+            <Link
+              href="/admin/login"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-2 text-xs font-semibold text-slate-300 rounded-lg border border-white/20 text-center hover:bg-white/5 flex items-center justify-center gap-2"
+            >
+              <ShieldCheck className="w-4 h-4 text-[#FFAA24]" />
+              <span>Admin Portal Login</span>
+            </Link>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
